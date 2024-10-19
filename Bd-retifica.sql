@@ -47,5 +47,13 @@ CREATE TABLE pecapedido (
     CONSTRAINT fk_id_pedido FOREIGN KEY (idpedido) REFERENCES pedido (idpedido) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE TABLE servicopedido(
+	idservico INTEGER NOT NULL,
+	idpedido INTEGER NOT NULL,
+	CONSTRAINT pk_id_servico_pedido PRIMARY KEY (idservico, idpedido),
+    CONSTRAINT fk_id_servico FOREIGN KEY (idservico) REFERENCES servico (idservico) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_id_pedido FOREIGN KEY (idpedido) REFERENCES pedido (idpedido) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 
 

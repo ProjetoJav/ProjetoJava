@@ -1,10 +1,11 @@
 CREATE TABLE clientes(
 	cpf VARCHAR(11) NOT NULL PRIMARY KEY,
-	idendereco INT NOT NULL REFERENCES endereco(idendereco), 
+	idendereco INT NOT NULL, 
 	nome VARCHAR(30) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	telefone_celular VARCHAR(14) NOT NULL,
-	telefone_fixo VARCHAR(8)
+	telefone_fixo VARCHAR(8),
+	CONSTRAINT fk_id_idendereco FOREIGN KEY (idendereco) REFERENCES endereco (idendereco) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -19,7 +20,7 @@ CREATE TABLE endereco(
 
 CREATE TABLE servico(
 	idservico INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-	nomeservico VARCHAR(40) NOT NULL,
+	nomeservico VARCHAR(40) NOT NULL UNIQUE,
 	preco NUMERIC(10,2) CHECK(preco > 0) NOT NULL
 );
 
@@ -27,16 +28,19 @@ CREATE TABLE servico(
 CREATE TABLE peca(
 	idpeca INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 	tipopeca VARCHAR(40) NOT NULL,
-	nomepeca VARCHAR(40) NOT NULL,
+	nomepeca VARCHAR(40) NOT NULL UNIQUE,
 	preco NUMERIC(10,2) CHECK(preco > 0) NOT NULL
 );
 
 CREATE TABLE pedido(
 	idpedido INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-	cpf VARCHAR NOT NULL REFERENCES clientes(cpf),
-	idservico INTEGER NOT NULL REFERENCES servico(idservico),
-	idpeca INTEGER NOT NULL REFERENCES peca(idpeca),
-	total NUMERIC(10,2) CHECK(total > 0) NOT NULL
+	cpf VARCHAR NOT NULL,
+	idservico INTEGER NOT NULL,
+	idpeca INTEGER NOT NULL,
+	total NUMERIC(10,2) CHECK(total > 0) NOT NULL,
+	CONSTRAINT fk_id_cpf FOREIGN KEY (cpf) REFERENCES clientes (cpf) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT fk_id_servico FOREIGN KEY (idservico) REFERENCES servico (idservico) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT fk_id_peca FOREIGN KEY (idpeca) REFERENCES peca (idpeca) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE pecapedido (

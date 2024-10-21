@@ -6,13 +6,11 @@ import java.sql.Connection;
 public class Usuario {
 
     private String nome;
-    private String email;
     private String senha;
 
     // Construtor da classe Usuario
     public Usuario(String nome, String email, String senha) {
         this.nome = nome;
-        this.email = email;
         this.senha = senha;
     }
 
@@ -23,14 +21,6 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getSenha() {
@@ -44,7 +34,7 @@ public class Usuario {
     // Método para realizar a conexão ao banco de dados
     public void conectarAoBanco() throws SQLException {
         // Obtem os dados do usuario
-        String usuario = this.getEmail(); // Utiliza o email como nome de usuário
+        String usuario = this.getNome(); // Utiliza o email como nome de usuário
         String senha = this.getSenha();
 
         // Cria uma conexão usando a classe ConexaoBanco com os dados do usuário

@@ -1,3 +1,5 @@
+package model;
+
 public class Endereco {
     private int idEndereco; // Atributo para armazenar o ID do endereço (int)
     private String rua; // Atributo para armazenar a rua do endereço (String)

@@ -1,3 +1,5 @@
+package model;
+
 public class Servico {
     
     private int idServico; // Atributo para armazenar o ID do serviço (int)

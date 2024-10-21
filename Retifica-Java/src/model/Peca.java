@@ -1,3 +1,5 @@
+package model;
+
 public class Peca {
     private int idPeca; // Atributo para armazenar o ID da peça (int)
     private String nome; // Atributo para armazenar o nome da peça (String)

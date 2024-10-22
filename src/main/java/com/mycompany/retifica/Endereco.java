@@ -25,38 +25,35 @@ public class Endereco {
         this.idEndereco = idEndereco; // Atribui o valor recebido como parâmetro ao atributo idEndereco
     }
 
-    public String getrua() { // Método getter para o atributo idEndereco
-        return rua; // Retorna o valor do atributo idEndereco
-    }
-    
-    public void setrua(String rua) { // Método setter para o atributo idEndereco
-        this.rua = rua; // Atribui o valor recebido como parâmetro ao atributo idEndereco
+    public String getRua() { // Método getter para o atributo rua
+        return rua; // Retorna o valor do atributo rua
     }
 
-    public String getbairro(){
-        return bairro;
+    public void setRua(String rua) { // Método setter para o atributo rua
+        this.rua = rua; // Atribui o valor recebido como parâmetro ao atributo rua
     }
 
-    public String setbairro(String bairro){
-        return this.bairro = bairro;
+    public String getBairro() { // Método getter para o atributo bairro
+        return bairro; // Retorna o valor do atributo bairro
     }
 
-    public String getcep(){
-        return cep;
+    public void setBairro(String bairro) { // Método setter para o atributo bairro
+        this.bairro = bairro; // Atribui o valor recebido como parâmetro ao atributo bairro
     }
 
-    public String setcep(String cep){
-        return this.cep = cep;
+    public String getCep() { // Método getter para o atributo cep
+        return cep; // Retorna o valor do atributo cep
     }
 
-    public String getcomplento(){
-        return complemento;
+    public void setCep(String cep) { // Método setter para o atributo cep
+        this.cep = cep; // Atribui o valor recebido como parâmetro ao atributo cep
     }
 
-    public String setcomplemento(String complento){
-        return this.complemento = complento;
+    public String getComplemento() { // Método getter para o atributo complemento
+        return complemento; // Retorna o valor do atributo complemento
     }
 
-    
-
+    public void setComplemento(String complemento) { // Método setter para o atributo complemento
+        this.complemento = complemento; // Atribui o valor recebido como parâmetro ao atributo complemento
+    }
 }

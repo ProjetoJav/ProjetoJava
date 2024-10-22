@@ -1,19 +1,22 @@
 package com.mycompany.retifica;
 
+import java.math.BigDecimal;
+
 public class Peca {
-    private int idPeca; // Atributo para armazenar o ID da peça (int)
-    private String nome; // Atributo para armazenar o nome da peça (String)
-    private String tipo; // Atributo para armazenar o tipo da peça (String)
-    private double preco; // Atributo para armazenar o preço da peça (double)
-    
+    private int idPeca;
+    private String tipoPeca;
+    private String nomePeca;
+    private BigDecimal preco;
+
     // Construtor
-    public Peca(int idPeca, String nome, String tipo, double preco) {
-        this.idPeca = idPeca; // Atribui o valor do ID da peça recebido como parâmetro ao atributo idPeca
-        this.nome = nome; // Atribui o valor do nome recebido como parâmetro ao atributo nome
-        this.tipo = tipo; // Atribui o valor do tipo recebido como parâmetro ao atributo tipo
-        this.preco = preco; // Atribui o valor do preço recebido como parâmetro ao atributo preco
+    public Peca(int idPeca, String tipoPeca, String nomePeca, BigDecimal preco) {
+        this.idPeca = idPeca;
+        this.tipoPeca = tipoPeca;
+        this.nomePeca = nomePeca;
+        this.preco = preco;
     }
 
+    // Getters e Setters
     public int getIdPeca() {
         return idPeca;
     }
@@ -22,27 +25,27 @@ public class Peca {
         this.idPeca = idPeca;
     }
 
-    public String getNome() {
-        return nome;
+    public String getTipoPeca() {
+        return tipoPeca;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
-    public String getTipo() {
-        return tipo;
+    public void setTipoPeca(String tipoPeca) {
+        this.tipoPeca = tipoPeca;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public String getNomePeca() {
+        return nomePeca;
     }
 
-    public double getPreco() {
+    public void setNomePeca(String nomePeca) {
+        this.nomePeca = nomePeca;
+    }
+
+    public BigDecimal getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
 }

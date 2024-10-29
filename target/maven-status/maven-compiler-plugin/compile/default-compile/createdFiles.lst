@@ -1,3 +1,4 @@
+com\mycompany\retifica\AplicacaoPrincipal.class
 com\mycompany\retifica\Cliente.class
 com\mycompany\retifica\Servico.class
 com\mycompany\retifica\ConexaoBanco.class
@@ -5,4 +6,5 @@ com\mycompany\retifica\Retifica.class
 com\mycompany\retifica\Endereco.class
 com\mycompany\retifica\Peca.class
 com\mycompany\retifica\Usuario.class
+com\mycompany\retifica\ControladorLogin.class
 com\mycompany\retifica\Orcamento.class

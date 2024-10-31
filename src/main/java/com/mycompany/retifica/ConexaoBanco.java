@@ -19,15 +19,24 @@ public class ConexaoBanco {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    public static boolean verificarUsuario(String nome, String senha) throws SQLException {
-        try (Connection conn = getConnection()) {
-            String sql = "SELECT * FROM usuarios WHERE nome = ? AND senha = ?";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setString(1, nome);
-            stmt.setString(2, senha);
-            ResultSet rs = stmt.executeQuery();
-            return rs.next();
+    public boolean verificarUsuario(String nome, String senha) {
+        String sql = "SELECT COUNT(*) FROM usuarios WHERE nome = ? AND senha = ?";
+        
+        try (Connection conn = getConnection(); 
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, nome);
+            pstmt.setString(2, senha);
+            ResultSet rs = pstmt.executeQuery();
+            
+            if (rs.next() && rs.getInt(1) > 0) {
+                return true; // Usuário encontrado
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        return false; // Usuário não encontrado
     }
 
     public static void inserirEndereco(Endereco endereco) throws SQLException {

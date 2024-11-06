@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="TelaServicosController.java">
+    <AnchorPane prefHeight="842" prefWidth="595" style="-fx-padding: 20;">
+      <HBox layoutX="12.0" layoutY="20.0" prefHeight="100.0" prefWidth="553.0" />
+
+        <!-- Main Table Section -->
+        <VBox alignment="CENTER_LEFT" spacing="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="250">
+            <!-- Services Table -->
+            <TableView fx:id="tableOrcamento" prefHeight="158.0" prefWidth="535.0">
+                <columns>
+                    <TableColumn prefWidth="60" text="Quant." />
+                    <TableColumn prefWidth="240" text="Serviços" />
+                    <TableColumn prefWidth="100" text="Retiramos" />
+                    <TableColumn prefWidth="80" text="Valores" />
+                </columns>
+            </TableView>
+
+            <!-- Services Without Discount Table -->
+            <TableView fx:id="tableServicosSemDesc" prefHeight="120">
+                <columns>
+                    <TableColumn prefWidth="250" text="Serv. s/ desc." />
+                    <TableColumn prefWidth="100" text="Sub-Total" />
+                </columns>
+            </TableView>
+
+            <!-- Parts Table -->
+            <TableView fx:id="tablePecas" prefHeight="120">
+                <columns>
+                    <TableColumn prefWidth="250" text="Peças" />
+                    <TableColumn prefWidth="100" text="Sub-Total" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Footer Section with Observations and Total -->
+        <VBox alignment="CENTER_LEFT" spacing="10" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+            <HBox spacing="10">
+                <Label style="-fx-font-size: 14px;" text="Entrada:" />
+                <TextField fx:id="entrada" prefWidth="100" />
+                <Label style="-fx-font-size: 14px;" text="Hrs:" />
+                <TextField fx:id="horas" prefWidth="50" />
+                <Label style="-fx-font-size: 14px;" text="Obs:" />
+                <TextArea fx:id="observacoes" prefHeight="50" prefWidth="200" />
+            </HBox>
+
+            <VBox spacing="5">
+                <HBox spacing="10">
+                    <Label style="-fx-font-size: 14px;" text="Total:" />
+                    <TextField fx:id="total" editable="false" prefWidth="100" />
+                </HBox>
+                <HBox spacing="10">
+                    <Label style="-fx-font-size: 14px;" text="Desc. sobre Serviços:" />
+                    <TextField fx:id="descontoServicos" editable="false" prefWidth="100" />
+                </HBox>
+                <HBox spacing="10">
+                    <Label style="-fx-font-size: 14px;" text="Total a Pagar:" />
+                    <TextField fx:id="totalAPagar" editable="false" prefWidth="100" />
+                </HBox>
+            </VBox>
+
+            <!-- Footer Notice -->
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="ATENÇÃO: Prazo máximo de retirada de peças: 30 dias" />
+        </VBox>
+
+               <!-- Client Information Section -->
+         <VBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="147.0" prefHeight="78.0" prefWidth="535.0" spacing="5">
+             <HBox spacing="10">
+                 <Label style="-fx-font-size: 14px;" text="Cliente:" />
+                 <TextField fx:id="cliente" editable="false" prefWidth="200" />
+                 <Label style="-fx-font-size: 14px;" text="Endereço:" />
+                 <TextField fx:id="endereco" editable="false" prefWidth="200" />
+             </HBox>
+             <HBox spacing="10" />
+             <HBox prefHeight="1.0" prefWidth="535.0" spacing="10">
+                 <Label style="-fx-font-size: 14px;" text="CNPJ/CIC:" />
+                 <TextField fx:id="cnpj" editable="false" prefWidth="150" />
+                 <Label style="-fx-font-size: 14px;" text="Telefone:" />
+                 <TextField fx:id="telefone" editable="false" prefWidth="150" />
+             </HBox>
+             <HBox spacing="10" />
+             <HBox spacing="10">
+                 <Label style="-fx-font-size: 14px;" text="RG:" />
+                 <TextField fx:id="rg" editable="false" prefWidth="150" />
+                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="ORÇAMENTO N°" wrapText="true" />
+                <TextField fx:id="numeroOrcamento" editable="false" prefWidth="100" />
+             </HBox>
+         </VBox>
+    </AnchorPane>
+     <!-- Header Section with Company Info and Document Title -->
+     <VBox alignment="CENTER_LEFT" layoutX="-389.0" layoutY="151.0" spacing="10" AnchorPane.leftAnchor="-389.0" AnchorPane.rightAnchor="489.0" AnchorPane.topAnchor="151.0" />
+</AnchorPane>

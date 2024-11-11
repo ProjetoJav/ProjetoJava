@@ -8,10 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="TelaServicosController.java">
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoretificasqlite.TelaOrcamento2Controller">
     <AnchorPane prefHeight="842" prefWidth="595" style="-fx-padding: 20;">
-      <HBox layoutX="12.0" layoutY="20.0" prefHeight="100.0" prefWidth="553.0" />
+      <HBox fx:id="InfoRetifica" layoutX="12.0" layoutY="20.0" prefHeight="100.0" prefWidth="553.0" />
 
         <!-- Main Table Section -->
         <VBox alignment="CENTER_LEFT" spacing="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="250">
@@ -24,7 +26,7 @@
                     <TableColumn prefWidth="80" text="Valores" />
                 </columns>
             </TableView>
-
+            
             <!-- Services Without Discount Table -->
             <TableView fx:id="tableServicosSemDesc" prefHeight="120">
                 <columns>

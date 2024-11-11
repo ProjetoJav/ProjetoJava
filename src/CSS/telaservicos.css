@@ -1,0 +1,18 @@
+/* Código CSS para a tela TelaServicos */
+.mainFxmlClass {
+    .root {
+        -fx-background-color: #1D3557; /* Cor de fundo azul escuro */
+    }
+    #TelaPrincipal1 {
+    -fx-background-color: #1D3557; /* Cor de fundo azul escuro ou preto com tom azulado para o VBox com fx:id TelaPrincipal1 */
+    }
+
+    .button {
+        -fx-background-color: #A8DADC; /* Cor de fundo padrão dos botões */
+        -fx-padding: 10px; /* Adiciona um espaço interno de 10 pixels ao redor dos botões */
+        -fx-margin: 10px;
+    }
+    .button:hover {
+        -fx-background-color: #457B9D; /* Cor de fundo alterada no hover */
+    }
+}

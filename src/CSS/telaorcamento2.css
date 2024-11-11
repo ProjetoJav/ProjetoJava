@@ -1,0 +1,77 @@
+.mainFxmlClass {
+    .root {
+    -fx-background-color: #f0f0f0; /* Cor de fundo da tela principal */
+}
+
+.table-view {
+    -fx-background-color: #ffffff; /* Cor de fundo das tabelas */
+    -fx-border-color: #cccccc; /* Cor da borda das tabelas */
+    -fx-border-width: 1px; /* Largura da borda das tabelas */
+}
+
+.table-column-header {
+    -fx-background-color: #e0e0e0; /* Cor de fundo do cabeçalho das colunas */
+    -fx-font-weight: bold; /* Estilo do texto do cabeçalho das colunas */
+    -fx-text-fill: #333333; /* Cor do texto do cabeçalho das colunas */
+}
+
+.table-row-cell {
+    -fx-text-fill: #333333; /* Cor do texto das células */
+}
+
+.label {
+    -fx-text-fill: #333333; /* Cor do texto das labels */
+}
+
+.text-field {
+    -fx-background-color: #ffffff; /* Cor de fundo dos campos de texto */
+    -fx-border-color: #cccccc; /* Cor da borda dos campos de texto */
+    -fx-border-width: 1px; /* Largura da borda dos campos de texto */
+    -fx-text-fill: #333333; /* Cor do texto dos campos de texto */
+}
+
+.text-area {
+    -fx-background-color: #ffffff; /* Cor de fundo da área de texto */
+    -fx-border-color: #cccccc; /* Cor da borda da área de texto */
+    -fx-border-width: 1px; /* Largura da borda da área de texto */
+    -fx-text-fill: #333333; /* Cor do texto da área de texto */
+}
+
+.h-box {
+    -fx-spacing: 10; /* Espaçamento entre os elementos do HBox */
+}
+
+.v-box {
+    -fx-spacing: 10; /* Espaçamento entre os elementos do VBox */
+}
+
+/* Estilos específicos para o cabeçalho */
+#header {
+    -fx-background-color: #007bff; /* Cor de fundo do cabeçalho */
+    -fx-padding: 10; /* Padding do cabeçalho */
+    -fx-font-size: 20px; /* Tamanho da fonte do cabeçalho */
+    -fx-text-fill: #ffffff; /* Cor do texto do cabeçalho */
+}
+
+/* Estilos específicos para a seção de informações do cliente */
+#clientSection {
+    -fx-background-color: #e0e0e0; /* Cor de fundo da seção do cliente */
+    -fx-border-color: #cccccc; /* Cor da borda da seção do cliente */
+    -fx-border-width: 1px; /* Largura da borda da seção do cliente */
+    -fx-padding: 10; /* Padding da seção do cliente */
+}
+
+/* Estilos específicos para o rodapé */
+#footerSection {
+    -fx-background-color: #e0e0e0; /* Cor de fundo do rodapé */
+    -fx-border-color: #cccccc; /* Cor da borda do rodapé */
+    -fx-border-width: 1px; /* Largura da borda do rodapé */
+    -fx-padding: 10; /* Padding do rodapé */
+}
+
+#footerNotice {
+    -fx-font-weight: bold; /* Estilo do texto do rodapé */
+    -fx-text-fill: #333333; /* Cor do texto do rodapé */
+}
+
+}

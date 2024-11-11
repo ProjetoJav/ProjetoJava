@@ -11,12 +11,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConexaoBanco {
-    private static final String URL = "jdbc:postgresql://localhost:5432/bd-retifica";
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "310705";
+    private static final String URL = "jdbc:sqlite:bd_retifica.db"; // Caminho para o arquivo do banco de dados
+
+    // Carrega o driver JDBC para SQLite
+    static {
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            System.err.println("Erro ao carregar o driver JDBC do SQLite: " + e.getMessage());
+            // Você pode adicionar tratamento de erro aqui, como lançar uma exceção
+        }
+    }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        return DriverManager.getConnection(URL);
     }
 
     public boolean verificarUsuario(String nome, String senha) {
@@ -278,8 +286,6 @@ public class ConexaoBanco {
                 );
             }
             return null;
-
-   
         }
     }
 
@@ -495,55 +501,4 @@ public class ConexaoBanco {
         }
         return servicos;
     }
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

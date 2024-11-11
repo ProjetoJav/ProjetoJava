@@ -1,6 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- You may freely edit this file. See commented blocks below for --><!-- some examples of how to customize the build. --><!-- (If you delete it and reopen the project it will be recreated.) --><!-- By default, only the Clean and Build commands use this build script. --><project name="ProjetoRetifica" default="default" basedir="." xmlns:fx="javafx:com.sun.javafx.tools.ant">
+<project name="ProjetoRetifica" default="default" basedir="." xmlns:fx="javafx:com.sun.javafx.tools.ant">
     <description>Builds, tests, and runs the project ProjetoRetifica.</description>
     <import file="nbproject/build-impl.xml"/>
+    
+    <target name="-post-init">
+        <!-- Adicione o caminho relativo para o JAR do SQLite ao classpath de tempo de execução -->
+        <path id="run.classpath">
+            <pathelement location="lib/sqlite-jdbc-3.47.0.0.jar"/>
+            <pathelement location="build/classes"/>
+        </path>
+    </target>
+
     <!--
 
     There exist several targets which are by default empty and which can be 

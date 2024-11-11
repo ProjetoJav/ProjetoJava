@@ -1,37 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
-  All rights reserved. Use is subject to license terms.
-
-  This file is available and licensed under the following license:
-
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions
-  are met:
-
-  - Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  - Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in
-    the documentation and/or other materials provided with the distribution.
-  - Neither the name of Oracle Corporation nor the names of its
-    contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -43,151 +11,151 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="TelaPrincipal1" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="TelaPrincipal1" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TelaServicosController">
   <children>
     <AnchorPane fx:id="TelaAncoraPrincipal1" maxHeight="-1.0" maxWidth="-1.0" prefHeight="440.0" prefWidth="642.0" VBox.vgrow="ALWAYS">
       <children>
-            <ScrollPane id="paginarolavel" fx:id="TelaRolagem1" layoutY="95.0" prefHeight="248.0" prefWidth="640.0">
-              <content>
-                <AnchorPane fx:id="TelaAncoraRolagem1" minHeight="0.0" minWidth="0.0" prefHeight="235.0" prefWidth="618.0">
-                     <children>
-                        <VBox id="vboxPR" fx:id="VBoxPrincipalRolagem1" prefHeight="234.0" prefWidth="604.0">
-                           <children>
-                              <HBox id="moldeorcamento" fx:id="HBoxOracamentosMolde1" prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Label id="clientenome" fx:id="ClienteNome" text="NOME">
-                                       <font>
-                                          <Font name="Microsoft JhengHei Light" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label id="clienteemail" fx:id="ClienteEMAIL" text="EMAIL">
-                                       <font>
-                                          <Font name="Microsoft JhengHei Light" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label id="clientetelefone1" fx:id="ClienteTelefone1" text="TEL1">
-                                       <font>
-                                          <Font name="Microsoft JhengHei Light" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label id="clientetelefone2" fx:id="ClienteTelefone2" text="TEL2">
-                                       <font>
-                                          <Font name="Microsoft JhengHei Light" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label id="numeroorcamento" fx:id="ClienteOrcamentoNumero" text="Nº">
-                                       <font>
-                                          <Font name="Microsoft JhengHei Light" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label id="orcamentototal" fx:id="ClienteOrcamentoTotal" text="TOTAL">
-                                       <font>
-                                          <Font name="Microsoft JhengHei Light" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label id="clientedocumento" fx:id="ClienteCNPJ" text="CNPJ/CIC">
-                                       <font>
-                                          <Font name="Microsoft JhengHei Light" size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <Label id="orcamentodata" fx:id="ClienteOrcamentoData" text="DATA">
-                                       <font>
-                                          <Font name="Microsoft JhengHei Light" size="15.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </HBox>
-                           </children>
-                        </VBox>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
-            <HBox id="cabecalho" fx:id="CabecalhoTela1" prefHeight="100.0" prefWidth="640.0">
-               <children>
-                  <TextField id="campofiltro" fx:id="FiltroPesquisa" alignment="TOP_LEFT" prefHeight="30.0" prefWidth="194.0" promptText="Nº / NOME / EMAIL / TEL">
-                     <font>
-                        <Font name="Microsoft JhengHei Light" size="20.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="TEXT" />
-                     </cursor>
-                  </TextField>
-                  <Button id="botaofiltro" fx:id="BtnFiltroPesquisa" mnemonicParsing="false" prefHeight="30.0" prefWidth="68.0" text="Filtrar">
-                     <font>
-                        <Font name="Microsoft PhagsPa" size="12.0" />
-                     </font>
-                  </Button>
-                  <VBox id="boxverde" fx:id="CampPago" prefHeight="100.0" prefWidth="90.0">
-                     <children>
-                        <Circle id="MDverde" fx:id="CRPago" fill="#00f54b" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label fx:id="TxtPago" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="72.0" prefWidth="109.0" text="Pago Concluido" wrapText="true">
-                           <font>
-                              <Font name="Microsoft JhengHei Light" size="15.0" />
-                           </font>
+        <ScrollPane id="paginarolavel" fx:id="TelaRolagem1" layoutY="95.0" prefHeight="248.0" prefWidth="640.0">
+          <content>
+            <AnchorPane fx:id="TelaAncoraRolagem1" minHeight="0.0" minWidth="0.0" prefHeight="235.0" prefWidth="618.0">
+              <children>
+                <VBox id="vboxPR" fx:id="VBoxPrincipalRolagem1" prefHeight="234.0" prefWidth="604.0">
+                  <children>
+                    <HBox id="moldeorcamento" fx:id="HBoxOracamentosMolde1" prefHeight="100.0" prefWidth="200.0">
+                      <children>
+                        <Label id="clientenome" fx:id="ClienteNome" text="NOME">
+                          <font>
+                            <Font name="Microsoft JhengHei Light" size="15.0" />
+                          </font>
                         </Label>
-                     </children>
-                  </VBox>
-                  <VBox id="boxvermelha" fx:id="CampNaoPago" prefHeight="100.0" prefWidth="90.0">
-                     <children>
-                        <Circle id="MDvermelho" fx:id="CRNaoPago" fill="#f51300" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label fx:id="TxtNaoPago" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="72.0" prefWidth="109.0" text="Não Pago Não Concluído" wrapText="true">
-                           <font>
-                              <Font name="Microsoft JhengHei Light" size="15.0" />
-                           </font>
+                        <Label id="clienteemail" fx:id="ClienteEMAIL" text="EMAIL">
+                          <font>
+                            <Font name="Microsoft JhengHei Light" size="15.0" />
+                          </font>
                         </Label>
-                     </children>
-                  </VBox>
-                  <VBox id="boxamarela" fx:id="CampEmServico" prefHeight="100.0" prefWidth="90.0">
-                     <children>
-                        <Circle id="MDamarelo" fx:id="CREmServico" fill="#e4ff4c" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label fx:id="TxtEmServico" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="72.0" prefWidth="109.0" text="Em Serviço" wrapText="true">
-                           <font>
-                              <Font name="Microsoft JhengHei UI Light" size="15.0" />
-                           </font>
+                        <Label id="clientetelefone1" fx:id="ClienteTelefone1" text="TEL1">
+                          <font>
+                            <Font name="Microsoft JhengHei Light" size="15.0" />
+                          </font>
                         </Label>
-                     </children>
-                  </VBox>
-                  <VBox id="boxazul" fx:id="CampOrçando" prefHeight="100.0" prefWidth="90.0">
-                     <children>
-                        <Circle id="MDazul" fx:id="CROrcando" fill="#1c00f7" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Label fx:id="TxtOrcando" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="72.0" prefWidth="109.0" text="Orçando" wrapText="true">
-                           <font>
-                              <Font name="Microsoft JhengHei Light" size="15.0" />
-                           </font>
+                        <Label id="clientetelefone2" fx:id="ClienteTelefone2" text="TEL2">
+                          <font>
+                            <Font name="Microsoft JhengHei Light" size="15.0" />
+                          </font>
                         </Label>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox id="rodape" fx:id="RodaPe" layoutY="360.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="640.0">
-               <children>
-                  <Button id="botaoabrir" fx:id="BtnAbrir" mnemonicParsing="false" prefHeight="30.0" prefWidth="54.0" text="Abrir">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button id="botaoeditar" fx:id="BtnEditar" mnemonicParsing="false" prefHeight="30.0" prefWidth="64.0" text="Editar">
-                     <font>
-                        <Font name="Microsoft YaHei Light" size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button id="botaocriar" fx:id="BtnCriar" mnemonicParsing="false" prefHeight="30.0" prefWidth="54.0" text="Criar">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-            </HBox>
+                        <Label id="numeroorcamento" fx:id="ClienteOrcamentoNumero" text="Nº">
+                          <font>
+                            <Font name="Microsoft JhengHei Light" size="15.0" />
+                          </font>
+                        </Label>
+                        <Label id="orcamentototal" fx:id="ClienteOrcamentoTotal" text="TOTAL">
+                          <font>
+                            <Font name="Microsoft JhengHei Light" size="15.0" />
+                          </font>
+                        </Label>
+                        <Label id="clientedocumento" fx:id="ClienteCNPJ" text="CNPJ/CIC">
+                          <font>
+                            <Font name="Microsoft JhengHei Light" size="15.0" />
+                          </font>
+                        </Label>
+                        <Label id="orcamentodata" fx:id="ClienteOrcamentoData" text="DATA">
+                          <font>
+                            <Font name="Microsoft JhengHei Light" size="15.0" />
+                          </font>
+                        </Label>
+                      </children>
+                    </HBox>
+                  </children>
+                </VBox>
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+        <HBox id="cabecalho" fx:id="CabecalhoTela1" prefHeight="100.0" prefWidth="640.0">
+          <children>
+            <TextField id="campofiltro" fx:id="FiltroPesquisa" alignment="TOP_LEFT" prefHeight="30.0" prefWidth="194.0" promptText="Nº / NOME / EMAIL / TEL">
+              <font>
+                <Font name="Microsoft JhengHei Light" size="20.0" />
+              </font>
+              <cursor>
+                <Cursor fx:constant="TEXT" />
+              </cursor>
+            </TextField>
+            <Button id="botaofiltro" fx:id="BtnFiltroPesquisa" mnemonicParsing="false" prefHeight="30.0" prefWidth="68.0" text="Filtrar">
+              <font>
+                <Font name="Microsoft PhagsPa" size="12.0" />
+              </font>
+            </Button>
+            <VBox id="boxverde" fx:id="CampPago" prefHeight="100.0" prefWidth="90.0">
+              <children>
+                <Circle id="MDverde" fx:id="CRPago" fill="#00f54b" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+                <Label fx:id="TxtPago" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="72.0" prefWidth="109.0" text="Pago Concluido" wrapText="true">
+                  <font>
+                    <Font name="Microsoft JhengHei Light" size="15.0" />
+                  </font>
+                </Label>
+              </children>
+            </VBox>
+            <VBox id="boxvermelha" fx:id="CampNaoPago" prefHeight="100.0" prefWidth="90.0">
+              <children>
+                <Circle id="MDvermelho" fx:id="CRNaoPago" fill="#f51300" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+                <Label fx:id="TxtNaoPago" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="72.0" prefWidth="109.0" text="Não Pago Não Concluído" wrapText="true">
+                  <font>
+                    <Font name="Microsoft JhengHei Light" size="15.0" />
+                  </font>
+                </Label>
+              </children>
+            </VBox>
+            <VBox id="boxamarela" fx:id="CampEmServico" prefHeight="100.0" prefWidth="90.0">
+              <children>
+                <Circle id="MDamarelo" fx:id="CREmServico" fill="#e4ff4c" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+                <Label fx:id="TxtEmServico" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="72.0" prefWidth="109.0" text="Em Serviço" wrapText="true">
+                  <font>
+                    <Font name="Microsoft JhengHei UI Light" size="15.0" />
+                  </font>
+                </Label>
+              </children>
+            </VBox>
+            <VBox id="boxazul" fx:id="CampOrçando" prefHeight="100.0" prefWidth="90.0">
+              <children>
+                <Circle id="MDazul" fx:id="CROrcando" fill="#1c00f7" radius="14.0" stroke="BLACK" strokeType="INSIDE" />
+                <Label fx:id="TxtOrcando" alignment="TOP_LEFT" contentDisplay="RIGHT" prefHeight="72.0" prefWidth="109.0" text="Orçando" wrapText="true">
+                  <font>
+                    <Font name="Microsoft JhengHei Light" size="15.0" />
+                  </font>
+                </Label>
+              </children>
+            </VBox>
+          </children>
+        </HBox>
+        <HBox id="rodape" fx:id="RodaPe" layoutY="360.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="640.0" spacing="10">
+          <children>
+            <Button id="botaoabrir" fx:id="BtnAbrir" mnemonicParsing="false" onAction="#AbrirTela" prefHeight="30.0" prefWidth="54.0" text="Abrir">
+              <font>
+                <Font size="15.0" />
+              </font>
+              <cursor>
+                <Cursor fx:constant="HAND" />
+              </cursor>
+            </Button>
+            <Button id="botaoeditar" fx:id="BtnEditar" mnemonicParsing="false" onAction="#EditarTela" prefHeight="30.0" prefWidth="64.0" text="Editar">
+              <font>
+                <Font name="Microsoft YaHei Light" size="15.0" />
+              </font>
+              <cursor>
+                <Cursor fx:constant="HAND" />
+              </cursor>
+            </Button>
+            <Button id="botaocriar" fx:id="BtnCriar" mnemonicParsing="false" onAction="#CriarTela" prefHeight="30.0" prefWidth="54.0" text="Criar">
+              <font>
+                <Font size="15.0" />
+              </font>
+              <cursor>
+                <Cursor fx:constant="HAND" />
+              </cursor>
+            </Button>
+          </children>
+        </HBox>
       </children>
     </AnchorPane>
   </children>

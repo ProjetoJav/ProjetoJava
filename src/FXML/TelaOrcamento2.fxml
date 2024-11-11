@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projetoretificasqlite.TelaOrcamento2Controller">
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TelaOrcamento2Controller">
     <AnchorPane prefHeight="842" prefWidth="595" style="-fx-padding: 20;">
       <HBox fx:id="InfoRetifica" layoutX="12.0" layoutY="20.0" prefHeight="100.0" prefWidth="553.0" />
 

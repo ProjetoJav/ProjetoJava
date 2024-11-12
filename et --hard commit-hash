@@ -1,0 +1,194 @@
+[33mcommit 7e3c3fc84241646e28635d05f952df1e2e4fb59f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Nov 11 19:32:58 2024 -0300
+
+    Criando a tela de login
+
+[33mcommit 8f152b436702bde02ff759a708315bd6d06cd6d0[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Nov 11 18:49:38 2024 -0300
+
+    Corrigindo erros no layout da tela de serviços
+
+[33mcommit fcb4971f4702d567d87b6a907586c453b8273672[m
+Merge: 3fadbcc 416750d
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Tue Nov 5 23:37:52 2024 -0300
+
+    Commit inicial
+
+[33mcommit 3fadbccca7cb9ba72703cf22348b0dd69f09e4a2[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Tue Nov 5 23:28:34 2024 -0300
+
+    Inicializando o projeto java FXML
+
+[33mcommit 416750d3e7132b90b472d5bc2b33f48193bdac4e[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Tue Nov 5 23:24:34 2024 -0300
+
+    Delete pom.xml
+
+[33mcommit d2c13640418983a11b00f6ca2e866e4b12afe87c[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Tue Nov 5 23:24:26 2024 -0300
+
+    Delete nbactions.xml
+
+[33mcommit 79d714d99ec9069af8184b62f1d76c3cd81b8020[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Tue Nov 5 23:24:19 2024 -0300
+
+    Delete target directory
+
+[33mcommit b2dcee3fb2f01af7894c301ea530a3fe0f7c0fcf[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Tue Nov 5 23:24:12 2024 -0300
+
+    Delete src directory
+
+[33mcommit 2a392681f5f3b91222eb897f9213c979447a41ac[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Wed Oct 30 23:37:59 2024 -0300
+
+    Integração da tela de login com o banco de dados
+
+[33mcommit bfe4d61a683517593a32c2b1722b56516f3ae3e8[m
+Merge: fd083fd df691a4
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Tue Oct 29 14:43:36 2024 -0300
+
+    Merge branch 'main' of https://github.com/ProjetoJav/ProjetoJava
+
+[33mcommit fd083fd5df8411f3860b9d7be981a85c1db95d41[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Tue Oct 29 14:41:32 2024 -0300
+
+    Login_Tela
+
+[33mcommit df691a45388be5b1e6f3d185ffb7a0bf471e03fb[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Tue Oct 29 14:40:24 2024 -0300
+
+    Delete TelaLogin directory
+
+[33mcommit 2d66cb0d693edcaf33377ab40944502e19e67ca3[m
+Author: Eduardo de Assis Vallini <149814701+EduardoVallini@users.noreply.github.com>
+Date:   Thu Oct 24 16:31:36 2024 -0300
+
+    Add files via upload
+
+[33mcommit 9a3906d7185aaf82a44b6b438d7e64bb14be25da[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Wed Oct 23 15:29:07 2024 -0300
+
+    Atualização do projeto
+
+[33mcommit 6b443845d73490c7b8c90e1ece78323e0b129013[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Tue Oct 22 13:55:14 2024 -0300
+
+    Primeiro commit no branch main
+
+[33mcommit fe747c2356c48b4fc45f26d96194fa5f435da738[m
+Merge: 769e750 b8b06d4
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Oct 21 21:37:48 2024 -0300
+
+    Merge branch 'main' of https://github.com/ProjetoJav/ProjetoJava
+
+[33mcommit 769e75033d9bf798092bf473dfa8c7184fcfb13a[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Oct 21 21:27:17 2024 -0300
+
+    primeiro commit
+
+[33mcommit b8b06d43ac07348cefc5691a36d5fa885c77def4[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Oct 21 21:16:44 2024 -0300
+
+    Delete Retifica-Java directory
+
+[33mcommit d25098b4e6dcd50d577590838f4a2bbbc57bbded[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Oct 21 19:19:55 2024 -0300
+
+    Atualização2
+
+[33mcommit 139ed45f789295c1f21011f63a30818b42e3edc0[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Oct 21 18:40:19 2024 -0300
+
+    Atualização1
+
+[33mcommit 5fd5465e576f31493d4a4337f17a60c3a0db90cb[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Oct 21 17:14:20 2024 -0300
+
+    Atualização
+
+[33mcommit 7fe534f103fa761787eb100ed19ba2a5fdd75aa3[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Oct 21 16:40:49 2024 -0300
+
+    First Update
+
+[33mcommit c1c70bd186de67f29b7239851d11cda9ed0257f9[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Oct 21 12:28:59 2024 -0300
+
+    Update file Main
+
+[33mcommit 033d713c2132acce4425327899fc17acbcc87582[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Oct 21 12:13:22 2024 -0300
+
+    Delete Diagrama sem nome.drawio
+
+[33mcommit ff61c016c084c07b7d4b4df59706ad82688bb055[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Oct 21 12:13:15 2024 -0300
+
+    Delete Bd-retifica.sql
+
+[33mcommit b11306fd95f642e4d30cf43e9d660fc59d69599a[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Mon Oct 21 12:12:45 2024 -0300
+
+    Delete LICENSE
+
+[33mcommit 988cbb04c3d7aba447feb835d26b3c5cda3d67a6[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Sat Oct 19 23:22:41 2024 -0300
+
+    Update Bd-retifica.sql
+
+[33mcommit c54f1a933d6c0c36f6527b69c6f25e91ba7b4f32[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Sat Oct 19 12:29:06 2024 -0300
+
+    Update Bd-retifica.sql
+
+[33mcommit 54c08821fa35e1d06f3c1812247e41c881ce529f[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Sat Oct 19 12:26:24 2024 -0300
+
+    Update Bd-retifica.sql
+
+[33mcommit 939d0a622df7c786c3b464fb6c27ffce9a9cc118[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Fri Oct 18 21:20:13 2024 -0300
+
+    Add files via upload
+
+[33mcommit 755b0f6a66202696e8341285c42c1ec4430b57f1[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Fri Oct 18 18:52:48 2024 -0300
+
+    Adicionado Diagrama sem nome.drawio
+
+[33mcommit f4a682a1c79e5016b2bf1a1f7a86a6fbe1c72c84[m
+Author: Julio Francisco Bernardino <juliobernardinoprogramador@gmail.com>
+Date:   Thu Oct 17 10:46:02 2024 -0300
+
+    Create LICENSE

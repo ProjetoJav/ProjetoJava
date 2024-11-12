@@ -10,7 +10,7 @@ public class ProjetoRetifica extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/FXML/TelaServicos.fxml")); 
+        Parent root = FXMLLoader.load(getClass().getResource("/FXML/TelaLogin.fxml"));
 
         Scene scene = new Scene(root);
 
@@ -18,6 +18,7 @@ public class ProjetoRetifica extends Application {
         scene.getStylesheets().add(cssFile);
 
         stage.setScene(scene);
+        stage.setTitle("Projeto Retífica");
         stage.show();
     }
 

@@ -23,11 +23,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.math.BigDecimal;
+import javafx.scene.control.TextField;
 
 public class Tela2Controller {
 
     @FXML
     private Button criar;
+    
+    @FXML
+    private TextField pesquisar;
 
     @FXML
     private Button editar;
@@ -70,12 +74,30 @@ public class Tela2Controller {
     }
 
     private ObservableList<Orcamento> getOrcamentos() {
+        return getOrcamentos("");
+    }
+
+    private ObservableList<Orcamento> getOrcamentos(String filtro) {
         ObservableList<Orcamento> orcamentos = FXCollections.observableArrayList();
         String sql = "SELECT * FROM orcamento";
 
+        if (!filtro.isEmpty()) {
+            sql += " WHERE idorcamento LIKE ? OR nomecliente LIKE ? OR emailcliente LIKE ? OR telefonewhats LIKE ? OR total LIKE ?";
+        }
+
         try (Connection conn = DriverManager.getConnection(URL);
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            if (!filtro.isEmpty()) {
+                String queryParam = "%" + filtro + "%";
+                pstmt.setString(1, queryParam);
+                pstmt.setString(2, queryParam);
+                pstmt.setString(3, queryParam);
+                pstmt.setString(4, queryParam);
+                pstmt.setString(5, queryParam);
+            }
+
+            ResultSet rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 int idOrcamento = rs.getInt("idorcamento");
@@ -97,15 +119,15 @@ public class Tela2Controller {
     @FXML
     void CriarOrcamento(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/FXML/TelaOrcamento2.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
+            Parent root = FXMLLoader.load(getClass().getResource("/FXML/TelaOrcamento2 (1).fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+}
+
 
     @FXML
     void EditarOrcamento(ActionEvent event) {
@@ -118,15 +140,15 @@ public class Tela2Controller {
                 TelaOrcamento2Controller controller = loader.getController();
                 controller.carregarOrcamento(selectedOrcamento);
 
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root));
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
+
 
     @FXML
     void ExcluirOrcamento(ActionEvent event) {
@@ -155,5 +177,11 @@ public class Tela2Controller {
             e.printStackTrace();
             System.out.println("Erro ao excluir o orçamento.");
         }
+    }
+
+    @FXML
+    void Pesquisar(ActionEvent event) {
+        String filtro = pesquisar.getText();
+        tableView.setItems(getOrcamentos(filtro));
     }
 }

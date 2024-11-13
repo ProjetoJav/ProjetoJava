@@ -25,7 +25,7 @@
             </Label>
             <HBox layoutX="480.0" layoutY="333.0" prefHeight="33.0" prefWidth="86.0">
                <children>
-                  <Button fx:id="concluir" mnemonicParsing="false" onAction="#Concluir" prefHeight="70.0" prefWidth="104.0" stylesheets="@../projetoretificasqlite/telaorcamento2.css" text="Abrir" />
+                  <Button fx:id="concluir" mnemonicParsing="false" onAction="#Concluir" prefHeight="70.0" prefWidth="104.0" stylesheets="@../projetoretificasqlite/telaorcamento2.css" text="Concluir" />
                </children>
             </HBox>
             <Label layoutX="137.0" layoutY="101.0" prefHeight="40.0" prefWidth="55.0" text="Email">
@@ -38,7 +38,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="320.0" layoutY="278.0" prefHeight="40.0" prefWidth="60.0" />
+            <TextField fx:id="Autoid" layoutX="320.0" layoutY="278.0" prefHeight="40.0" prefWidth="60.0" />
             <Label layoutX="200.0" layoutY="278.0" prefHeight="40.0" prefWidth="120.0" text="Nº orçameto">
                <font>
                   <Font size="20.0" />

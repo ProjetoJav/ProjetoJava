@@ -16,12 +16,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.ResultSet;
 import java.math.BigDecimal;
 
 public class TelaOrcamento2Controller {
 
     @FXML
     private TextField cliente;
+    
+    @FXML
+    private TextField Autoid;
 
     @FXML
     private Button concluir;
@@ -41,6 +45,9 @@ public class TelaOrcamento2Controller {
     @FXML
     public void initialize() {
         criarTabelaOrcamentos();
+        if (orcamentoSelecionado == null) {
+            Autoid.setText(String.valueOf(getProximoIdOrcamento()));
+        }
     }
 
     @FXML
@@ -61,6 +68,7 @@ public class TelaOrcamento2Controller {
 
     public void carregarOrcamento(Orcamento orcamento) {
         this.orcamentoSelecionado = orcamento;
+        this.Autoid.setText(String.valueOf(orcamento.getIdOrcamento()));
         this.cliente.setText(orcamento.getNomeCliente());
         this.email.setText(orcamento.getEmailCliente());
         this.telefone.setText(orcamento.getTelefoneWhats());
@@ -119,6 +127,20 @@ public class TelaOrcamento2Controller {
             e.printStackTrace();
             System.out.println("Erro ao atualizar orçamento.");
         }
+    }
+
+    private int getProximoIdOrcamento() {
+        String sql = "SELECT seq FROM sqlite_sequence WHERE name='orcamento'";
+        try (Connection conn = DriverManager.getConnection(URL);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            if (rs.next()) {
+                return rs.getInt(1) + 1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 1;  // Retorna 1 se a tabela estiver vazia
     }
 
     private void voltarParaTela2(ActionEvent event) {

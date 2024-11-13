@@ -9,12 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import Class.Orcamento;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.math.BigDecimal;
 
 public class TelaOrcamento2Controller {
 
@@ -34,7 +36,8 @@ public class TelaOrcamento2Controller {
     private TextField total;
 
     private static final String URL = "jdbc:sqlite:C:/Users/julio/Documents/NetBeansProjects/ProjetoJava-main (1)/ProjetoJava-main/db_retifica.db";
-    
+    private Orcamento orcamentoSelecionado;
+
     @FXML
     public void initialize() {
         criarTabelaOrcamentos();
@@ -45,14 +48,23 @@ public class TelaOrcamento2Controller {
         String cliente = this.cliente.getText();
         String email = this.email.getText();
         String telefone = this.telefone.getText();
-        String total = this.total.getText();
-        
-        if (inserirOrcamento(cliente, email, telefone, total)) {
-            System.out.println("Orçamento inserido com sucesso.");
-            voltarParaTela2(event);
+        BigDecimal total = new BigDecimal(this.total.getText());
+
+        if (orcamentoSelecionado != null) {
+            atualizarOrcamento(cliente, email, telefone, total);
         } else {
-            System.out.println("Erro ao inserir orçamento.");
+            inserirOrcamento(cliente, email, telefone, total);
         }
+
+        voltarParaTela2(event);
+    }
+
+    public void carregarOrcamento(Orcamento orcamento) {
+        this.orcamentoSelecionado = orcamento;
+        this.cliente.setText(orcamento.getNomeCliente());
+        this.email.setText(orcamento.getEmailCliente());
+        this.telefone.setText(orcamento.getTelefoneWhats());
+        this.total.setText(orcamento.getTotal().toString());
     }
 
     private void criarTabelaOrcamentos() {
@@ -74,7 +86,7 @@ public class TelaOrcamento2Controller {
         }
     }
 
-    private boolean inserirOrcamento(String cliente, String email, String telefone, String total) {
+    private void inserirOrcamento(String cliente, String email, String telefone, BigDecimal total) {
         String sql = "INSERT INTO orcamento (nomecliente, emailcliente, telefonewhats, total) VALUES (?, ?, ?, ?)";
         
         try (Connection conn = DriverManager.getConnection(URL);
@@ -82,12 +94,30 @@ public class TelaOrcamento2Controller {
             pstmt.setString(1, cliente);
             pstmt.setString(2, email);
             pstmt.setString(3, telefone);
-            pstmt.setString(4, total);
+            pstmt.setBigDecimal(4, total);
             pstmt.executeUpdate();
-            return true;
+            System.out.println("Orçamento inserido com sucesso.");
         } catch (SQLException e) {
             e.printStackTrace();
-            return false;
+            System.out.println("Erro ao inserir orçamento.");
+        }
+    }
+
+    private void atualizarOrcamento(String cliente, String email, String telefone, BigDecimal total) {
+        String sql = "UPDATE orcamento SET nomecliente = ?, emailcliente = ?, telefonewhats = ?, total = ? WHERE idorcamento = ?";
+
+        try (Connection conn = DriverManager.getConnection(URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, cliente);
+            pstmt.setString(2, email);
+            pstmt.setString(3, telefone);
+            pstmt.setBigDecimal(4, total);
+            pstmt.setInt(5, orcamentoSelecionado.getIdOrcamento());
+            pstmt.executeUpdate();
+            System.out.println("Orçamento atualizado com sucesso.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Erro ao atualizar orçamento.");
         }
     }
 

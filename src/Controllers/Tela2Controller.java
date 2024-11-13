@@ -97,7 +97,7 @@ public class Tela2Controller {
     @FXML
     void CriarOrcamento(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/FXML/TelaOrcamento2 (1).fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/FXML/TelaOrcamento2.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -109,7 +109,23 @@ public class Tela2Controller {
 
     @FXML
     void EditarOrcamento(ActionEvent event) {
-        // Lógica para editar orçamento
+        Orcamento selectedOrcamento = tableView.getSelectionModel().getSelectedItem();
+        if (selectedOrcamento != null) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/TelaOrcamento2 (1).fxml"));
+                Parent root = loader.load();
+
+                TelaOrcamento2Controller controller = loader.getController();
+                controller.carregarOrcamento(selectedOrcamento);
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML

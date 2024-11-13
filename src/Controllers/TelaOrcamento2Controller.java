@@ -34,7 +34,7 @@ public class TelaOrcamento2Controller {
     private TextField total;
 
     private static final String URL = "jdbc:sqlite:C:/Users/julio/Documents/NetBeansProjects/ProjetoJava-main (1)/ProjetoJava-main/db_retifica.db";
-
+    
     @FXML
     public void initialize() {
         criarTabelaOrcamentos();

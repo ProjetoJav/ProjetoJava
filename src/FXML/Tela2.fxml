@@ -1,95 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
-<?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Tela2Controller">
    <center>
       <VBox fx:id="mainpane" prefHeight="200.0" prefWidth="100.0" styleClass="mainpane" stylesheets="@../projetoretificasqlite/tela2.css" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane hmax="0.0" prefHeight="301.0" prefWidth="0.0" style="-fx-border-color: #457B9D;" stylesheets="@../CSS/tela2.css" vbarPolicy="ALWAYS" VBox.vgrow="ALWAYS">
-               <content>
-                  <HBox prefHeight="56.0" prefWidth="689.0">
-                     <children>
-                        <Label id="info" prefHeight="52.0" prefWidth="69.0" styleClass="info" stylesheets="@../CSS/tela2.css" text="Nº">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Label>
-                        <Label id="info" prefHeight="52.0" prefWidth="182.0" styleClass="info" stylesheets="@../CSS/tela2.css" text="NomeCliente">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Label>
-                        <Label id="info" prefHeight="52.0" prefWidth="181.0" styleClass="info" stylesheets="@../CSS/tela2.css" text="EmailCliente">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Label>
-                        <Label id="info" prefHeight="52.0" prefWidth="189.0" styleClass="info" stylesheets="@../CSS/tela2.css" text="Telefone/whats">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                           <textFill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color red="1.0" green="1.0" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </LinearGradient>
-                           </textFill>
-                        </Label>
-                        <Label id="info" prefHeight="52.0" prefWidth="119.0" styleClass="info" stylesheets="@../CSS/tela2.css" text="Total">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                           <textFill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color red="1.0" green="1.0" blue="1.0" />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </LinearGradient>
-                           </textFill>
-                        </Label>
-                     </children>
-                  </HBox>
-               </content>
-               <styleClass>
-                  <String fx:value="TelaRolagem1" />
-                  <String fx:value="info" />
-               </styleClass>
-            </ScrollPane>
+            <TableView fx:id="tableView" prefHeight="601.0" prefWidth="742.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="idCol" text="ID" />
+                    <TableColumn fx:id="clienteCol" text="Cliente" />
+                    <TableColumn fx:id="emailCol" text="Email" />
+                    <TableColumn fx:id="telefoneCol" text="Telefone" />
+                    <TableColumn fx:id="totalCol" text="Total" />
+                </columns>
+            </TableView>
          </children>
       </VBox>
    </center>
@@ -100,20 +32,18 @@
                <children>
                   <Button fx:id="criar" mnemonicParsing="false" onAction="#CriarOrcamento" prefHeight="31.0" prefWidth="62.0" text="Criar">
                      <stylesheets>
-                        <URL value="@../projetoretificasqlite/tela2.css" />
-                        <URL value="@../CSS/tela2.css" />
+                        
                      </stylesheets>
                   </Button>
                   <Button fx:id="editar" mnemonicParsing="false" onAction="#EditarOrcamento" prefHeight="31.0" prefWidth="62.0" text="Editar">
                      <stylesheets>
-                        <URL value="@../projetoretificasqlite/tela2.css" />
-                        <URL value="@../CSS/tela2.css" />
+                      
                      </stylesheets>
                   </Button>
                   <Button fx:id="excluir" mnemonicParsing="false" onAction="#ExcluirOrcamento" prefHeight="31.0" prefWidth="62.0" text="Excluir">
                      <stylesheets>
-                        <URL value="@../projetoretificasqlite/tela2.css" />
-                        <URL value="@../CSS/tela2.css" />
+                        
+                      
                      </stylesheets>
                   </Button>
                </children>
@@ -126,14 +56,13 @@
             </HBox>
             <HBox layoutX="-1.0" layoutY="73.0" prefHeight="27.0" prefWidth="260.0" stylesheets="@../projetoretificasqlite/tela2.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <HBox layoutX="-1.0" layoutY="135.0" prefHeight="27.0" prefWidth="260.0" stylesheets="@../projetoretificasqlite/tela2.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="29.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" />
          </children>
          <BorderPane.margin>
-            <Insets />
+          
          </BorderPane.margin>
          <stylesheets>
-            <URL value="@../projetoretificasqlite/tela2.css" />
-            <URL value="@../CSS/tela2.css" />
+            
+           
          </stylesheets>
       </AnchorPane>
    </left>

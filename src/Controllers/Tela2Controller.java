@@ -1,26 +1,36 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package Controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 
-/**
- * FXML Controller class
- *
- * @author victo
- */
-public class Tela2Controller implements Initializable {
+public class Tela2Controller {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+    @FXML
+    private Button criar;
+
+    @FXML
+    private Button editar;
+
+    @FXML
+    private Button excluir;
+
+    @FXML
+    private VBox mainpane;
+
+    @FXML
+    void CriarOrcamento(ActionEvent event) {
+        // Lógica para criar orçamento
+    }
+
+    @FXML
+    void EditarOrcamento(ActionEvent event) {
+        // Lógica para editar orçamento
+    }
+
+    @FXML
+    void ExcluirOrcamento(ActionEvent event) {
+        // Lógica para excluir orçamento
+    }
 }

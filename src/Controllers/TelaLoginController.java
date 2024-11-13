@@ -33,7 +33,6 @@ public class TelaLoginController {
     @FXML
     private Button login;
 
-    // Caminho correto para o arquivo do banco de dados SQLite
     private static final String URL = "jdbc:sqlite:C:/Users/julio/Documents/NetBeansProjects/ProjetoJava-main (1)/ProjetoJava-main/db_retifica.db";
 
     @FXML
@@ -43,14 +42,12 @@ public class TelaLoginController {
 
     @FXML
     void login(ActionEvent event) {
-        System.out.println("Login button pressed");
         String usuario = this.usuario.getText();
         String senha = this.senha.getText();
         
         if (verificarCredenciais(usuario, senha)) {
-            System.out.println("Credentials verified");
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("/FXML/TelaServicos.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/FXML/Tela2.fxml"));
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
@@ -59,7 +56,6 @@ public class TelaLoginController {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Invalid credentials");
             label.setText("Usuário e senha incorretos");
         }
     }

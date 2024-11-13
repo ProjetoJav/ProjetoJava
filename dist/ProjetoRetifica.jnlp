@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ProjetoRetifica.jar" size="103201" download="eager" />
+    <jar href="ProjetoRetifica.jar" size="105144" download="eager" />
     <jar href="lib\sqlite-jdbc-3.47.0.0.jar" size="14258044" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="projetoretifica.ProjetoRetifica"  name="ProjetoRetifica" />

@@ -86,22 +86,6 @@ public class TelaLoginController {
         try (Connection conn = DriverManager.getConnection(URL);
              Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
-            adicionarDadosExemplo(conn);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void adicionarDadosExemplo(Connection conn) {
-        String sql = "INSERT INTO usuarios (nome, senha) VALUES (?, ?)";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "admin");
-            pstmt.setString(2, "123456");
-            pstmt.executeUpdate();
-
-            pstmt.setString(1, "user");
-            pstmt.setString(2, "password");
-            pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

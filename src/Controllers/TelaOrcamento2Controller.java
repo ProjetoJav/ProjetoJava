@@ -16,8 +16,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.ResultSet;
 import java.math.BigDecimal;
+import java.sql.ResultSet;
 
 public class TelaOrcamento2Controller {
 
@@ -68,11 +68,11 @@ public class TelaOrcamento2Controller {
 
     public void carregarOrcamento(Orcamento orcamento) {
         this.orcamentoSelecionado = orcamento;
-        this.Autoid.setText(String.valueOf(orcamento.getIdOrcamento()));
         this.cliente.setText(orcamento.getNomeCliente());
         this.email.setText(orcamento.getEmailCliente());
         this.telefone.setText(orcamento.getTelefoneWhats());
         this.total.setText(orcamento.getTotal().toString());
+        this.Autoid.setText(String.valueOf(orcamento.getIdOrcamento()));
     }
 
     private void criarTabelaOrcamentos() {
@@ -129,29 +129,29 @@ public class TelaOrcamento2Controller {
         }
     }
 
+    private void voltarParaTela2(ActionEvent event) {
+        try {
+            Tela2Controller tela2Controller = Tela2Controller.getInstance();
+            tela2Controller.atualizarTabela();
+            
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private int getProximoIdOrcamento() {
-        String sql = "SELECT seq FROM sqlite_sequence WHERE name='orcamento'";
+        String sql = "SELECT MAX(idorcamento) + 1 AS proximoId FROM orcamento";
         try (Connection conn = DriverManager.getConnection(URL);
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             if (rs.next()) {
-                return rs.getInt(1) + 1;
+                return rs.getInt("proximoId");
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return 1;  // Retorna 1 se a tabela estiver vazia
-    }
-
-    private void voltarParaTela2(ActionEvent event) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/FXML/Tela2.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        return 1; // Retorna 1 se não houver registros
     }
 }

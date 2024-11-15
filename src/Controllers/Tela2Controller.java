@@ -62,6 +62,16 @@ public class Tela2Controller {
 
     private static final String URL = "jdbc:sqlite:C:/Users/julio/Documents/NetBeansProjects/ProjetoJava-main (1)/ProjetoJava-main/db_retifica.db";
 
+    private static Tela2Controller instance;
+
+    public Tela2Controller() {
+        instance = this;
+    }
+
+    public static Tela2Controller getInstance() {
+        return instance;
+    }
+
     @FXML
     public void initialize() {
         idCol.setCellValueFactory(new PropertyValueFactory<>("idOrcamento"));
@@ -70,34 +80,20 @@ public class Tela2Controller {
         telefoneCol.setCellValueFactory(new PropertyValueFactory<>("telefoneWhats"));
         totalCol.setCellValueFactory(new PropertyValueFactory<>("total"));
 
+        atualizarTabela();
+    }
+
+    public void atualizarTabela() {
         tableView.setItems(getOrcamentos());
     }
 
-    private ObservableList<Orcamento> getOrcamentos() {
-        return getOrcamentos("");
-    }
-
-    private ObservableList<Orcamento> getOrcamentos(String filtro) {
+    public static ObservableList<Orcamento> getOrcamentos() {
         ObservableList<Orcamento> orcamentos = FXCollections.observableArrayList();
         String sql = "SELECT * FROM orcamento";
 
-        if (!filtro.isEmpty()) {
-            sql += " WHERE idorcamento LIKE ? OR nomecliente LIKE ? OR emailcliente LIKE ? OR telefonewhats LIKE ? OR total LIKE ?";
-        }
-
         try (Connection conn = DriverManager.getConnection(URL);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            if (!filtro.isEmpty()) {
-                String queryParam = "%" + filtro + "%";
-                pstmt.setString(1, queryParam);
-                pstmt.setString(2, queryParam);
-                pstmt.setString(3, queryParam);
-                pstmt.setString(4, queryParam);
-                pstmt.setString(5, queryParam);
-            }
-
-            ResultSet rs = pstmt.executeQuery();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
                 int idOrcamento = rs.getInt("idorcamento");
@@ -119,15 +115,16 @@ public class Tela2Controller {
     @FXML
     void CriarOrcamento(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/FXML/TelaOrcamento2 (1).fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/TelaOrcamento2 (1).fxml"));
+            Parent root = loader.load();
+
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
-}
-
+    }
 
     @FXML
     void EditarOrcamento(ActionEvent event) {
@@ -148,7 +145,6 @@ public class Tela2Controller {
             }
         }
     }
-
 
     @FXML
     void ExcluirOrcamento(ActionEvent event) {
@@ -184,4 +180,45 @@ public class Tela2Controller {
         String filtro = pesquisar.getText();
         tableView.setItems(getOrcamentos(filtro));
     }
+
+
+    private ObservableList<Orcamento> getOrcamentos(String filtro) {
+    ObservableList<Orcamento> orcamentos = FXCollections.observableArrayList();
+    String sql = "SELECT * FROM orcamento";
+
+    if (!filtro.isEmpty()) {
+        sql += " WHERE idorcamento LIKE ? OR nomecliente LIKE ? OR emailcliente LIKE ? OR telefonewhats LIKE ? OR total LIKE ?";
+    }
+
+    try (Connection conn = DriverManager.getConnection(URL);
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+        if (!filtro.isEmpty()) {
+            String queryParam = "%" + filtro + "%";
+            pstmt.setString(1, queryParam);
+            pstmt.setString(2, queryParam);
+            pstmt.setString(3, queryParam);
+            pstmt.setString(4, queryParam);
+            pstmt.setString(5, queryParam);
+        }
+
+        ResultSet rs = pstmt.executeQuery();
+
+        while (rs.next()) {
+            int idOrcamento = rs.getInt("idorcamento");
+            String nomeCliente = rs.getString("nomecliente");
+            String emailCliente = rs.getString("emailcliente");
+            String telefoneWhats = rs.getString("telefonewhats");
+            BigDecimal total = rs.getBigDecimal("total");
+
+            Orcamento orcamento = new Orcamento(idOrcamento, nomeCliente, emailCliente, telefoneWhats, total);
+            orcamentos.add(orcamento);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return orcamentos;
+}
+
 }

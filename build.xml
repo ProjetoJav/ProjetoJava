@@ -10,6 +10,21 @@
         </path>
     </target>
 
+    <target name="jar-with-dependencies" depends="compile">
+  <mkdir dir="${dist}/lib"/>
+  <copy todir="${dist}/lib">
+    <fileset dir="${lib}"/>
+  </copy>
+  <jar destfile="${dist}/${ant.project.name}-with-dependencies.jar" basedir="${build}">
+    <manifest>
+      <attribute name="Main-Class" value="projetoretifica.ProjetoRetifica"/>
+      <attribute name="Class-Path" value="lib/"/>
+    </manifest>
+  </jar>
+</target>
+
+
+
     <!--
 
     There exist several targets which are by default empty and which can be 

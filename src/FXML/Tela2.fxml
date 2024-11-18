@@ -22,6 +22,7 @@
                     <TableColumn fx:id="emailCol" text="Email" />
                     <TableColumn fx:id="telefoneCol" text="Telefone" />
                     <TableColumn fx:id="totalCol" text="Total" />
+                    <TableColumn fx:id="dataCol" text="Data" />
                 </columns>
             </TableView>
          </children>

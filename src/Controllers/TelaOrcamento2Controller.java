@@ -95,39 +95,44 @@ public class TelaOrcamento2Controller {
     }
 
     private void inserirOrcamento(String cliente, String email, String telefone, BigDecimal total) {
-        String sql = "INSERT INTO orcamento (nomecliente, emailcliente, telefonewhats, total) VALUES (?, ?, ?, ?)";
-        
-        try (Connection conn = DriverManager.getConnection(URL);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, cliente);
-            pstmt.setString(2, email);
-            pstmt.setString(3, telefone);
-            pstmt.setBigDecimal(4, total);
-            pstmt.executeUpdate();
-            System.out.println("Orçamento inserido com sucesso.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Erro ao inserir orçamento.");
-        }
-    }
+    String sql = "INSERT INTO orcamento (nomecliente, emailcliente, telefonewhats, total, data) VALUES (?, ?, ?, ?, ?)";
+    String dataAtual = java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-    private void atualizarOrcamento(String cliente, String email, String telefone, BigDecimal total) {
-        String sql = "UPDATE orcamento SET nomecliente = ?, emailcliente = ?, telefonewhats = ?, total = ? WHERE idorcamento = ?";
-
-        try (Connection conn = DriverManager.getConnection(URL);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, cliente);
-            pstmt.setString(2, email);
-            pstmt.setString(3, telefone);
-            pstmt.setBigDecimal(4, total);
-            pstmt.setInt(5, orcamentoSelecionado.getIdOrcamento());
-            pstmt.executeUpdate();
-            System.out.println("Orçamento atualizado com sucesso.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Erro ao atualizar orçamento.");
-        }
+    try (Connection conn = DriverManager.getConnection(URL);
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, cliente);
+        pstmt.setString(2, email);
+        pstmt.setString(3, telefone);
+        pstmt.setBigDecimal(4, total);
+        pstmt.setString(5, dataAtual);
+        pstmt.executeUpdate();
+        System.out.println("Orçamento inserido com sucesso.");
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Erro ao inserir orçamento.");
     }
+}
+
+private void atualizarOrcamento(String cliente, String email, String telefone, BigDecimal total) {
+    String sql = "UPDATE orcamento SET nomecliente = ?, emailcliente = ?, telefonewhats = ?, total = ?, data = ? WHERE idorcamento = ?";
+    String dataAtual = java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+
+    try (Connection conn = DriverManager.getConnection(URL);
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setString(1, cliente);
+        pstmt.setString(2, email);
+        pstmt.setString(3, telefone);
+        pstmt.setBigDecimal(4, total);
+        pstmt.setString(5, dataAtual);
+        pstmt.setInt(6, orcamentoSelecionado.getIdOrcamento());
+        pstmt.executeUpdate();
+        System.out.println("Orçamento atualizado com sucesso.");
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Erro ao atualizar orçamento.");
+    }
+}
+
 
     private void voltarParaTela2(ActionEvent event) {
         try {
@@ -154,4 +159,6 @@ public class TelaOrcamento2Controller {
         }
         return 1; // Retorna 1 se não houver registros
     }
+    
+    
 }

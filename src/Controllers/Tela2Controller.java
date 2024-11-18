@@ -59,6 +59,10 @@ public class Tela2Controller {
 
     @FXML
     private TableColumn<Orcamento, BigDecimal> totalCol;
+    
+    @FXML
+    private TableColumn<Orcamento, String> dataCol;
+
 
     private static final String URL = "jdbc:sqlite:C:/Users/julio/Documents/NetBeansProjects/ProjetoJava-main (1)/ProjetoJava-main/db_retifica.db";
 
@@ -74,12 +78,13 @@ public class Tela2Controller {
 
     @FXML
     public void initialize() {
-        idCol.setCellValueFactory(new PropertyValueFactory<>("idOrcamento"));
-        clienteCol.setCellValueFactory(new PropertyValueFactory<>("nomeCliente"));
-        emailCol.setCellValueFactory(new PropertyValueFactory<>("emailCliente"));
-        telefoneCol.setCellValueFactory(new PropertyValueFactory<>("telefoneWhats"));
-        totalCol.setCellValueFactory(new PropertyValueFactory<>("total"));
-
+        idCol.setCellValueFactory(new PropertyValueFactory<>("idOrcamento")); 
+        clienteCol.setCellValueFactory(new PropertyValueFactory<>("nomeCliente")); 
+        emailCol.setCellValueFactory(new PropertyValueFactory<>("emailCliente")); 
+        telefoneCol.setCellValueFactory(new PropertyValueFactory<>("telefoneWhats")); 
+        totalCol.setCellValueFactory(new PropertyValueFactory<>("total")); 
+        dataCol.setCellValueFactory(new PropertyValueFactory<>("data")); 
+        
         atualizarTabela();
     }
 
@@ -88,29 +93,31 @@ public class Tela2Controller {
     }
 
     public static ObservableList<Orcamento> getOrcamentos() {
-        ObservableList<Orcamento> orcamentos = FXCollections.observableArrayList();
-        String sql = "SELECT * FROM orcamento";
+    ObservableList<Orcamento> orcamentos = FXCollections.observableArrayList();
+    String sql = "SELECT * FROM orcamento";
 
-        try (Connection conn = DriverManager.getConnection(URL);
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+    try (Connection conn = DriverManager.getConnection(URL);
+         Statement stmt = conn.createStatement();
+         ResultSet rs = stmt.executeQuery(sql)) {
 
-            while (rs.next()) {
-                int idOrcamento = rs.getInt("idorcamento");
-                String nomeCliente = rs.getString("nomecliente");
-                String emailCliente = rs.getString("emailcliente");
-                String telefoneWhats = rs.getString("telefonewhats");
-                BigDecimal total = rs.getBigDecimal("total");
+        while (rs.next()) {
+            int idOrcamento = rs.getInt("idorcamento");
+            String nomeCliente = rs.getString("nomecliente");
+            String emailCliente = rs.getString("emailcliente");
+            String telefoneWhats = rs.getString("telefonewhats");
+            BigDecimal total = rs.getBigDecimal("total");
+            String data = rs.getString("data");
 
-                Orcamento orcamento = new Orcamento(idOrcamento, nomeCliente, emailCliente, telefoneWhats, total);
-                orcamentos.add(orcamento);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+            Orcamento orcamento = new Orcamento(idOrcamento, nomeCliente, emailCliente, telefoneWhats, total, data);
+            orcamentos.add(orcamento);
         }
-
-        return orcamentos;
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+
+    return orcamentos;
+}
+
 
     @FXML
     void CriarOrcamento(ActionEvent event) {
@@ -187,7 +194,7 @@ public class Tela2Controller {
     String sql = "SELECT * FROM orcamento";
 
     if (!filtro.isEmpty()) {
-        sql += " WHERE idorcamento LIKE ? OR nomecliente LIKE ? OR emailcliente LIKE ? OR telefonewhats LIKE ? OR total LIKE ?";
+        sql += " WHERE idorcamento LIKE ? OR nomecliente LIKE ? OR emailcliente LIKE ? OR telefonewhats LIKE ? OR total LIKE ? OR data LIKE ?";
     }
 
     try (Connection conn = DriverManager.getConnection(URL);
@@ -200,6 +207,7 @@ public class Tela2Controller {
             pstmt.setString(3, queryParam);
             pstmt.setString(4, queryParam);
             pstmt.setString(5, queryParam);
+            pstmt.setString(6, queryParam);
         }
 
         ResultSet rs = pstmt.executeQuery();
@@ -210,8 +218,9 @@ public class Tela2Controller {
             String emailCliente = rs.getString("emailcliente");
             String telefoneWhats = rs.getString("telefonewhats");
             BigDecimal total = rs.getBigDecimal("total");
+            String data = rs.getString("data");
 
-            Orcamento orcamento = new Orcamento(idOrcamento, nomeCliente, emailCliente, telefoneWhats, total);
+            Orcamento orcamento = new Orcamento(idOrcamento, nomeCliente, emailCliente, telefoneWhats, total, data);
             orcamentos.add(orcamento);
         }
     } catch (SQLException e) {
@@ -220,5 +229,6 @@ public class Tela2Controller {
 
     return orcamentos;
 }
-
 }
+
+

@@ -47,11 +47,19 @@ public class CriarBancoDeDados {
                         + "nomecliente VARCHAR(50) NOT NULL, "
                         + "emailcliente VARCHAR(50) NOT NULL, "
                         + "telefonewhats VARCHAR(14) NOT NULL, "
-                        + "total NUMERIC(10,2) CHECK(total > 0) NOT NULL);";
+                        + "total NUMERIC(10,2) CHECK(total > 0) NOT NULL, "
+                        + "data DATETIME NOT NULL);";
                 stmt.executeUpdate(sqlOrcamento);
                 System.out.println("Tabela 'orcamento' criada com sucesso!");
             } else {
                 System.out.println("Tabela 'orcamento' já existe.");
+                // Adicionar a coluna 'data' se não existir
+                ResultSet rsData = conn.getMetaData().getColumns(null, null, "orcamento", "data");
+                if (!rsData.next()) {
+                    String sqlAddDataColumn = "ALTER TABLE orcamento ADD COLUMN data DATETIME NOT NULL";
+                    stmt.executeUpdate(sqlAddDataColumn);
+                    System.out.println("Coluna 'data' adicionada com sucesso!");
+                }
             }
 
             // Remover as tabelas que não serão usadas

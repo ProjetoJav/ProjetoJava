@@ -8,14 +8,16 @@ public class Orcamento {
     private String emailCliente;
     private String telefoneWhats;
     private BigDecimal total;
+    private String data;
 
     // Construtor
-    public Orcamento(int idOrcamento, String nomeCliente, String emailCliente, String telefoneWhats, BigDecimal total) {
+    public Orcamento(int idOrcamento, String nomeCliente, String emailCliente, String telefoneWhats, BigDecimal total, String data) {
         this.idOrcamento = idOrcamento;
         this.nomeCliente = nomeCliente;
         this.emailCliente = emailCliente;
         this.telefoneWhats = telefoneWhats;
         this.total = total;
+        this.data = data;
     }
 
     // Getters e Setters
@@ -57,5 +59,13 @@ public class Orcamento {
 
     public void setTotal(BigDecimal total) {
         this.total = total;
+    }
+    
+    public String getData() { 
+        return data; 
+    }
+    
+    public void setData(String data) {
+        this.data = data;
     }
 }
